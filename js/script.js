@@ -10,59 +10,24 @@
 // quanti e quali dei numeri da indovinare sono stati individuati. 
 // (Bonus: stampare in pagina il risultato, in alternativa all'alert.)
 
-number();
 
+// PREPARAZIONE
 
-function number() {
+var cpuNumbers = [];
 
-    alert(Math.floor(Math.random() * (5 - 1 + 1)) + 1);
-    alert(Math.floor(Math.random() * (5 - 1 + 1)) + 1);
-    alert(Math.floor(Math.random() * (5 - 1 + 1)) + 1);
-    alert(Math.floor(Math.random() * (5 - 1 + 1)) + 1);
-    alert(Math.floor(Math.random() * (5 - 1 + 1)) + 1);
-
+function getRandomNumbers(min, max) {
+    max++;
+    return Math.floor(Math.random() * (max - min) + min);
 };
 
 
+while (cpuNumbers.length < 5) {
 
-setTimeout(insert, 3000);
+    var randomNumber = getRandomNumbers(1, 10);
+    if (!cpuNumbers.includes(randomNumber)) {
+        cpuNumbers.push(randomNumber);
 
-function insert() {
-    alert(prompt('Inserisci il numero'));
-    alert(prompt('Inserisci il numero'));
-    alert(prompt('Inserisci il numero'));
-};
+    }
+}
 
-// // PREPARAZIONE 
-
-// var cpuNumber = [];
-
-// while (cpuNumber.length < 5) {
-//     var randomNumber = getRandomNumber(1, 10);
-//     // se non è più presente nell'array di cpuNumber,lo inserisco.
-//     if (!cpuNumber.includes(randomNumber)) {
-//         cpuNumber.push(randomNumber);
-//     };
-//     console.log(cpuNumber);
-
-// };
-
-// // FASE DI GIOCO 
-// alert(cpuNumber.sort());
-
-// setTimeout(function () {
-//     var tentativoUtente = [];
-//     var numeriIndovinati = [];
-//     while (tentativiUtente.length < 5) {
-//         var userChoice = getUserNumbers();
-//         // L'aveva già usato questo utente
-//         if (!tentativiUtente.includes(userChoice)) {
-//             tentativiUtente.push(userChoice);
-//             if (cpuNumber.includes(userChoice)) {
-
-//             }
-//         };
-//     };
-// }
-
-// );
+console.log(cpuNumbers);
