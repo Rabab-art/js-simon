@@ -31,3 +31,50 @@ while (cpuNumbers.length < 5) {
 }
 
 console.log(cpuNumbers);
+
+// GIOCO
+
+alert(cpuNumbers.sort())
+
+function isValidNumeber(num) {
+    if (!num || isNaN(num) || num.trim() === '') {
+        return false;
+    }
+    return true;
+};
+
+
+function getUserNumber() {
+    var num = prompt('Scegli un numero da 1 a 100');
+    while (!isValidNumeber(num) || num < 1 || num > 100) {
+        alert('Questo non è un numero valido');
+        num = prompt('Scegli un numero da 1 a 100 ');
+    }
+    return parseInt(num);
+};
+
+
+
+setTimeout(function () {
+    var tentativiUtente = [];
+    var numeriIndovinati = [];
+
+    while (tentativiUtente.length < 5) {
+        var userChoice = getUserNumber();
+
+
+        /*l'aveva già utitlizzato questo numero*/
+        if (!tentativiUtente.includes(userChoice)) {
+            tentativiUtente.push(userChoice);
+            if (cpuNumbers.includes(userChoice)) {
+                numeriIndovinati.push(userChoice)
+            };
+
+        } else {
+            alert('Hai già scelto questo numero')
+        };
+    }
+    alert('Hai indovinato' + numeriIndovinati.length + ' numeri: ' + numeriIndovinati
+    );
+
+}, 300);
